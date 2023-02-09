@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script purpose: Locally rename MacOS computers, while using a csv as source of data. 
 # The csv with data has four columns separated by comas: 1,userNameHere,laptopSerialNumber,newComputerName
-# Author: Daniel Arauz - 2023-02-08 - Twitter: @danarauz Mastodon: @danarauz@mastodon.online
+# Author: Daniel Arauz - Created: 2023-02-08 Updated: 2023-02-09 - Twitter: @danarauz Mastodon: @danarauz@mastodon.online
 clear
 echo " "
 echo "Finding the local computer serial number..."
