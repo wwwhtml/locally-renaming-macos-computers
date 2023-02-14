@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script purpose: Locally rename MacOS computers, while using a csv as source of data. 
-# The csv with data has four columns separated by comas: orderNumber,userNameHere,laptopSerialNumber,newComputerName
+# The csv with data has four columns separated by comas: computerSerialNumber,newComputerName
 # Author: Daniel Arauz - Created: 2023-02-08 Updated: 2023-02-09 - Twitter: @danarauz Mastodon: @danarauz@mastodon.online
 clear
 echo " "
@@ -15,13 +15,13 @@ echo " "
 echo "Attempting to rename computer..."
 echo "--------------------------------"
 IFS=","
-while read f1 f2 f3 f4
+while read f1 f2
 do
-if [ $serialNumber = $f3 ]; then
-        name="$f4"
-        local="$f4"
+if [ $serialNumber = $f1 ]; then
+        name="$f2"
+        local="$f2"
         sudo scutil --set HostName "$name"  && sudo scutil --set ComputerName "$name" && sudo scutil --set LocalHostName "$local"
-        echo "$f1, $f2, $f3, $f4, $(date)" >> listOfRenamedComputers.txt
+        echo "$f1, $f2, $(date)" >> listOfRenamedComputers.txt
         echo "Old Hostname: $oldHostname"
         echo "New Hostname: $(hostname)"
         echo " "
