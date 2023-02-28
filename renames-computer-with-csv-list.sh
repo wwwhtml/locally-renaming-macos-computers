@@ -7,8 +7,7 @@ echo " "
 echo "Finding the local computer serial number..."
 echo "--------------------------------------------"
 oldHostname=$(hostname)
-system_profiler SPHardwareDataType | grep Serial > ~/SPHardwareDataTypeParsedOutPut.txt
-serialNumber=$(awk '{print $4}' ~/SPHardwareDataTypeParsedOutPut.txt)
+serialNumber=$(system_profiler SPHardwareDataType | grep Serial | awk '{print $4'})
 echo "Local Computer serial number found: $serialNumber"
 echo " "
 echo " "
